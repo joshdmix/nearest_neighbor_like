@@ -13,6 +13,7 @@
     "jsverify": "^0.8.4"
   },
   "devDependencies": {
+    "fast-check": "^1.16.0",
     "mocha": "^6.2.0"
   }
 }
