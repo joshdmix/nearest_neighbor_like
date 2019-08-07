@@ -1,9 +1,10 @@
 const assert = require('assert');
 const chai = require('chai');
+const jsc = require('jsverify')
 const { distance, findSmallestTriangle, perimeter } = require('../nearest_neighbor.js');
 const beacons = require('../beacons.js');
-
 const expect = chai.expect;
+
 
 
 
@@ -11,8 +12,17 @@ const expect = chai.expect;
 describe('distance', function() {
 				it('should return 1', function () {
 								assert.equal(distance(10, 0, 10, 1), 1);
-				})
+				}),
+
+				it('distance, jsc', function () {
+												jsc.assert(jsc.forall('[integer, integer, integer, integer]', (arr) =>
+																{
+																				return distance(sort(arr))
+
+																}))
+								})
 })
+
 
 describe('perimeter', function() {
 				it('should return 1', function () {
