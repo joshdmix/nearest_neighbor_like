@@ -13,21 +13,19 @@ const findSmallestTriangle = (arr) => {
   let smallestTriangle = [null, null, null]
   for (let i = 0; i < arr.length; i++) {
 		  for (let j = i + 1; j < arr.length; j++) {
-        	for (let k = i + 2; k < arr.length; k++) {
+        	for (let k = j + 1; k < arr.length; k++) {
 									const per = perimeter(arr[i].x, arr[i].y, arr[j].x, arr[j].y, arr[k].x, arr[k].y)
-				     				  if (
-                        (per && per < peri)
-                        && (arr[i]._id !== arr[j]._id
-                            && arr[j]._id !== arr[k]._id
-                            && arr[i]._id !== arr[k]._id)) {
+									if (per && per < peri) {
 					                      peri = per;
 					                      smallestTriangle = [arr[i], arr[j], arr[k]];
+									}
 				     }
          }
 	   }
-	}
   return smallestTriangle
 };
+
+console.log(findSmallestTriangle(beacons))
 
 
 
